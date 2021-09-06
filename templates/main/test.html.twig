@@ -9,5 +9,28 @@
 </head>
 <body>
 <h1>Hello Tests</h1>
+<div>
+    {# creating a variable! #}
+    {% set name = 'Alex' %}
+    <h2>{{ name }}</h2>
+    {# Creating an array #}
+    {% set colours = ['red', 'brown', 'turquoise', 'pink'] %}
+    {% for colour in colours %}
+        <div style="background-color: {{ colour }}">{{ colour }}</div>
+    {% endfor %}
+
+    {# an object #}
+    {% set book = {
+        title : 'The fellowship of the ring',
+        year : 'old',
+        author : 'JRR Tolkien'}
+    %}
+    <h3>{{ book.author }}</h3>
+    <div>
+        {% for key, value in book %}
+            <p>{{ key }} : {{ value }}</p>
+        {% endfor %}
+    </div>
+</div>
 </body>
 </html>
