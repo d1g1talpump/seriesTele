@@ -12,7 +12,7 @@ class MainController extends AbstractController
      */
     public function home()
     {
-        die('ok!');
+        return $this->render('main/home.html.twig');
     }
 
     /**
@@ -20,6 +20,6 @@ class MainController extends AbstractController
      */
     public function test()
     {
-        die ('ok test!');
+        return $this->render('main/test.html.twig');
     }
 }
