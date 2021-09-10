@@ -1,23 +1,30 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=yes, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
-</head>
-<body>
-<h1>Hello Tests</h1>
-<div>
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>test page</h1>
+
+    <div>{{ mySeries.title|raw }}</div>
+    <div>released : {{ mySeries.year }}</div>
+    <br>
+    <div>here's another variable <em>{{ anotherVariable }}</em></div>
+
+    <br>
+    <div>{{ "+20 days"|date('d/M/Y') }}</div>
+    <p>^^ {{ 'my brithday yay'|upper }}</p>
+
+
     {# creating a variable! #}
     {% set name = 'Alex' %}
-    <h2>{{ name }}</h2>
+    <h2>"{{ name|upper }}" <span style="font-size: 0.75em">there {{ name|length }} letters in this word</span></h2>
     {# Creating an array #}
     {% set colours = ['red', 'brown', 'turquoise', 'pink'] %}
+
     {% for colour in colours %}
-        <div style="background-color: {{ colour }}">{{ colour }}</div>
+        <div style="background-color: {{ colour }}"> {{ loop.index}} : {{ colour }}</div>
     {% endfor %}
+    <div>number of colour : {{ colours|length }}</div>
+    <div>colours in a line : {{ colours|join(' / ') }}</div>
 
     {# an object #}
     {% set book = {
@@ -32,5 +39,7 @@
         {% endfor %}
     </div>
 </div>
-</body>
-</html>
+
+{% endblock %}
+
+{% block title %}{{ parent() }}! | Test {% endblock %}

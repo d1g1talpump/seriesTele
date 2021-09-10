@@ -20,6 +20,14 @@ class MainController extends AbstractController
      */
     public function test()
     {
-        return $this->render('main/test.html.twig');
+        $series = [
+            "title" => "<h1>Mad Men</h1>",
+            "year" => "2007"
+        ];
+
+        return $this->render('main/test.html.twig', [
+            "mySeries" => $series,
+            "anotherVariable" => 42069,
+        ]);
     }
 }
